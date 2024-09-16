@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 15:50:54 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/09/08 17:48:22 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:03:12 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ public:
 	Fixed(const float value);
 	Fixed(const Fixed &other);
 	Fixed &operator=(const Fixed &rhs);
-	friend std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 	~Fixed();
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
@@ -35,5 +34,7 @@ private:
 	int _value;
 	static const int _fractional_bits = 8;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 #endif

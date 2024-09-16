@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 15:50:54 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/09/08 18:18:35 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:03:43 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,21 @@ public:
 	Fixed(const int value);
 	Fixed(const float value);
 	Fixed(const Fixed &other);
-	Fixed& operator=(const Fixed &rhs);
-    bool operator>(const Fixed &rhs) const;
-    bool operator<(const Fixed &rhs) const;
-    bool operator>=(const Fixed &rhs) const;
-    bool operator<=(const Fixed &rhs) const;
-    bool operator==(const Fixed &rhs) const;
-    bool operator!=(const Fixed &rhs) const;
-    Fixed operator+(const Fixed &rhs) const;
-    Fixed operator-(const Fixed &rhs) const;
-    Fixed operator*(const Fixed &rhs) const;
-    Fixed operator/(const Fixed &rhs) const;
-    Fixed& operator++();
-    Fixed operator++(int);
-    Fixed& operator--();
-    Fixed operator--(int);
-	friend std::ostream &operator<<(std::ostream &os, const Fixed &fixed);
+	Fixed &operator=(const Fixed &rhs);
+	bool operator>(const Fixed &rhs) const;
+	bool operator<(const Fixed &rhs) const;
+	bool operator>=(const Fixed &rhs) const;
+	bool operator<=(const Fixed &rhs) const;
+	bool operator==(const Fixed &rhs) const;
+	bool operator!=(const Fixed &rhs) const;
+	Fixed operator+(const Fixed &rhs) const;
+	Fixed operator-(const Fixed &rhs) const;
+	Fixed operator*(const Fixed &rhs) const;
+	Fixed operator/(const Fixed &rhs) const;
+	Fixed &operator++();
+	Fixed operator++(int);
+	Fixed &operator--();
+	Fixed operator--(int);
 	~Fixed();
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
@@ -53,5 +52,7 @@ private:
 	int _value;
 	static const int _fractional_bits = 8;
 };
+
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed);
 
 #endif
