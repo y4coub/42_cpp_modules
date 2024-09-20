@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 15:50:51 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/09/08 18:29:54 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/09/21 00:32:32 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,24 @@ Fixed Fixed::operator-(const Fixed &rhs) const
 
 Fixed Fixed::operator*(const Fixed &rhs) const
 {
-	return Fixed(toFloat() * rhs.toFloat());
+	Fixed fixed;
+	long result = static_cast<long>(_value) * static_cast<long>(rhs._value);
+	fixed.setRawBits(result >> _fractional_bits);
+	return fixed;
 }
 
 Fixed Fixed::operator/(const Fixed &rhs) const
 {
-	return Fixed(toFloat() / rhs.toFloat());
+	if (rhs._value == 0)
+	{
+		std::cout << "Error: Division by zero" << std::endl;
+		return *this;
+	}
+	Fixed fixed;
+	int64_t result = static_cast<int64_t>(_value) << _fractional_bits;
+	result /= rhs._value;
+	fixed.setRawBits(result);
+	return fixed;
 }
 
 Fixed &Fixed::operator++()
