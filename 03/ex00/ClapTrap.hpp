@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/09 18:26:09 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/09/09 18:47:39 by yaharkat         ###   ########.fr       */
+/*   Created: 2024/09/29 17:15:54 by yaharkat          #+#    #+#             */
+/*   Updated: 2024/09/29 17:34:58 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,30 @@
 #define CLAPTRAP_HPP_
 
 #include <iostream>
-
 class ClapTrap
 {
 public:
-	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &rhs);
 	~ClapTrap();
-	void attack(const std::string &target);
-	void attack(ClapTrap &target);
+	void attack(std::string const & target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	void costEnergy(unsigned int amount);
-	std::string getName() const;
+	unsigned int getHitpoints();
+	unsigned int getEnergyPoints();
+	unsigned int getAttackDamage();
+	std::string getName();
+	void setHitpoints(unsigned int hitpoints);
+	void setEnergyPoints(unsigned int energy_points);
+	void setAttackDamage(unsigned int attack_damage);
+	void setName(std::string name);
 
 private:
 	std::string _name;
-	int _hitPoints;
-	int _energyPoints;
-	int _attackDamage;
+	int _hitpoints;
+	int _energy_points;
+	int _attack_damage;
 };
 
 #endif
