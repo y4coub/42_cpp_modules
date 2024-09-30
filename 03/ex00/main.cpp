@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 17:34:08 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/09/29 17:35:50 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/09/30 16:09:08 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int main()
 
 	// Run out of energy for Clappy
 	std::cout << "\n--- Clappy Runs Out of Energy ---" << std::endl;
-	for (int i = 0; i < 10; ++i) // Clappy attacks until his energy is depleted
+	for (int i = 0; i < 11; ++i) // Clappy attacks until his energy is depleted
 	{
 		clappy.attack("Bobby");
 	}

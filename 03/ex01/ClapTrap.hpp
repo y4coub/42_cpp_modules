@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 17:15:54 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/09/30 16:31:59 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/09/29 17:34:58 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ public:
 	void setHitpoints(unsigned int hitpoints);
 	void setEnergyPoints(unsigned int energy_points);
 	void setAttackDamage(unsigned int attack_damage);
+	void setName(std::string name);
 
 private:
 	std::string _name;
