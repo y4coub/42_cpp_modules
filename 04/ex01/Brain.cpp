@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 14:43:47 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/10/02 15:01:26 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/10/04 23:54:42 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,9 @@ Brain &Brain::operator=(const Brain &rhs)
 			ideas[i] = rhs.ideas[i];
 	}
 	return *this;
+}
+
+std::string Brain::getIdea(int i) const
+{
+	return ideas[i];
 }

@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 00:45:58 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/10/02 14:59:58 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/10/04 15:43:14 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,9 @@ std::string Animal::getType(void) const
 void Animal::setType(const std::string type)
 {
 	_type = type;
+}
+
+void Animal::makeSound(void) const
+{
+	std::cout << "Some generic Animal sound" << std::endl;
 }

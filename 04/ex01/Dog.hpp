@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 01:11:53 by yaharkat          #+#    #+#             */
-/*   Updated: 2024/10/02 14:46:47 by yaharkat         ###   ########.fr       */
+/*   Updated: 2024/10/04 16:55:09 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@
 class Dog : public Animal
 {
 public:
-	Dog();
+	Dog(std::string idea);
 	Dog(const Dog &other);
 	Dog &operator=(const Dog &rhs);
 	~Dog();
 	void makeSound(void) const;
+	Brain &getBrain();
+
 private:
 	Brain *brain;
 };
