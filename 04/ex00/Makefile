@@ -26,7 +26,7 @@ CFLAGS	=	-Wall -Werror -Wextra -std=c++98 -I.
 RM		=	rm -rf
 
 # Dir and file names
-NAME	=	poly
+NAME	=	run
 SRCS	=	Animal.cpp  Dog.cpp WrongAnimal.cpp main.cpp Cat.cpp WrongCat.cpp
 OBJS	=	$(SRCS:.cpp=.o)
 INC		=	$(wildcard *.hpp)
