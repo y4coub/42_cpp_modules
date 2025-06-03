@@ -41,7 +41,6 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
 		"robotomy request",
 		"presidential pardon"
 	};
-	// 関数ポインタの配列
 	AForm *(*createFunctions[3])(const std::string &target) = {
 		&makeShrubberyCreationForm,
 		&makeRobotomyRequestForm,

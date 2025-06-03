@@ -39,7 +39,6 @@ int main(void)
 	}
 	catch (std::exception &e)
 	{
-		// form -> robotomyなら、deleteしないとリークする
 		if (form)
 			delete form;
 		std::cerr << e.what() << std::endl;

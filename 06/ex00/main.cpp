@@ -13,7 +13,6 @@ int main(int argc, char **argv)
 	return (0);
 }
 
-// floatは2^31(≈2.1474836e9)付近から誤差が出るので、それを考慮すること。
 
 //#include "ScalarConverter.hpp"
 //#include <iostream>

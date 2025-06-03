@@ -26,4 +26,6 @@ Data *Serializer::deserialize(uintptr_t raw)
     return reinterpret_cast<Data *>(raw);
 }
 
-// reinterpret_castは、型安全を無視して、ポインタや整数型を別のポインタや整数型に変換します。
+// reinterpret_cast is used to convert a pointer to an integer type and vice versa.
+// uintptr_t is an unsigned integer type that is capable of holding a pointer.
+// This is useful for serialization and deserialization of pointers, allowing you to store pointers as integers and retrieve them later.
