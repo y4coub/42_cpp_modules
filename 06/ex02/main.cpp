@@ -4,6 +4,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <iostream>
+#include <typeinfo>
 
 Base *generate(void)
 {
@@ -17,10 +18,6 @@ Base *generate(void)
         return new C();
 }
 
-
-//ポインタの場合
-//有効なポインタを返す
-//失敗したらnullptr
 void identify(Base *p)
 {
     std::cout << "<--- Pointer --->" << std::endl;
@@ -35,31 +32,37 @@ void identify(Base *p)
     std::cout << "<--- ------- --->" << std::endl;
 }
 
-//参照の場合
-//有効な参照を返す
-//失敗したら例外を投げる
 void identify(Base &p)
 {
     std::cout << "<--- Reference --->" << std::endl;
-    try {
+    try
+    {
         A &a = dynamic_cast<A &>(p);
         (void)a;
         std::cout << "A cast succeeded" << std::endl;
-    } catch (...) {
+    }
+    catch (std::bad_cast &)
+    {
         std::cout << "A cast failed" << std::endl;
     }
-    try {
+    try
+    {
         B &b = dynamic_cast<B &>(p);
         (void)b;
         std::cout << "B cast succeeded" << std::endl;
-    } catch (...) {
+    }
+    catch (std::bad_cast &)
+    {
         std::cout << "B cast failed" << std::endl;
     }
-    try {
+    try
+    {
         C &c = dynamic_cast<C &>(p);
         (void)c;
         std::cout << "C cast succeeded" << std::endl;
-    } catch (...) {
+    }
+    catch (std::bad_cast &)
+    {
         std::cout << "C cast failed" << std::endl;
     }
     std::cout << "<--- --------- --->" << std::endl;

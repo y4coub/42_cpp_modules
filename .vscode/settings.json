@@ -1,12 +1,12 @@
 {
 	"files.associations": {
+		"*.c": "c",
 		"*.json.liquid": "json",
 		"*.yaml.liquid": "yaml",
 		"*.md.liquid": "markdown",
 		"*.js.liquid": "liquid-javascript",
 		"*.css.liquid": "liquid-css",
 		"*.scss.liquid": "liquid-scss",
-		"*.c": "c",
 		"ostream": "cpp",
 		"iostream": "cpp",
 		"array": "cpp",
@@ -54,6 +54,17 @@
 		"sstream": "cpp",
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
-		"typeinfo": "cpp"
+		"typeinfo": "cpp",
+		"charconv": "cpp",
+		"chrono": "cpp",
+		"cstring": "cpp",
+		"map": "cpp",
+		"optional": "cpp",
+		"ratio": "cpp",
+		"format": "cpp",
+		"span": "cpp",
+		"text_encoding": "cpp",
+		"cinttypes": "cpp",
+		"variant": "cpp"
 	}
 }
