@@ -84,7 +84,8 @@ int main()
 	printArray(c, "Assigned");
 
 	// Modify and verify deep copy
-	b[0] = 999;
+	for (unsigned int i = 0; i < b.size(); i++)
+		b[i] = i * 100 + 999;
 	printArray(a, "Original after modifying copy");
 	printArray(b, "Modified copy");
 
