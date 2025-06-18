@@ -22,17 +22,23 @@ int main(void)
 		Intern someRandomIntern;
 		Bureaucrat bureaucrat("Bureaucrat", 1);
 		
-		form = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		form = someRandomIntern.makeForm("shrubbery", "Bender");
+		if (!form)
+			throw std::runtime_error("Form creation failed");
 		bureaucrat.signForm(*form);
 		bureaucrat.executeForm(*form);
 		delete form;
 		
 		form = someRandomIntern.makeForm("robotomy request", "Bender");
+		if (!form)
+			throw std::runtime_error("Form creation failed");
 		bureaucrat.signForm(*form);
 		bureaucrat.executeForm(*form);
 		delete form;
 		
 		form = someRandomIntern.makeForm("presidential pardon", "Bender");
+		if (!form)
+			throw std::runtime_error("Form creation failed");
 		bureaucrat.signForm(*form);
 		bureaucrat.executeForm(*form);
 		delete form;
