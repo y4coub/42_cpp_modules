@@ -53,7 +53,7 @@ unsigned int Span::longestSpan()
 		throw Span::notFound();
 	if (_arr.size() == 1)
 		throw Span::onlyOneElement();
-	std::sort(_arr.begin(), _arr.end());
-	return _arr[_arr.size() - 1] - _arr[0];
+	int min = *std::min_element(_arr.begin(), _arr.end());
+	int max = *std::max_element(_arr.begin(), _arr.end());
+	return static_cast<unsigned int>(max - min);
 }
-
