@@ -1,44 +1,59 @@
 #include "Span.hpp"
 
-Span::Span(): _maxSize(0) {}
-Span::Span(unsigned int n): _maxSize(n) {}
-Span::Span(const Span &other): _maxSize(other._maxSize), _numbers(other._numbers) {}
-Span &Span::operator=(const Span &rhs) {
-	if (this != &rhs) {
-		_maxSize = rhs._maxSize;
-		_numbers = rhs._numbers;
-	}
-	return *this;
-}	
-Span::~Span() {}
+Span::Span() : _arr(), _size(0)
+{
+}
 
-void Span::addNumber(int number) {
-	if (_numbers.size() >= _maxSize)
-		throw std::length_error("Span is full");
-	_numbers.push_back(number);
+Span::Span(unsigned int n) : _arr(), _size(n)
+{
 }
-void Span::addNumbers(const std::vector<int> &numbers) {
-	if (_numbers.size() + numbers.size() > _maxSize)
-		throw std::length_error("Span is full");
-	_numbers.insert(_numbers.end(), numbers.begin(), numbers.end());
+
+Span::Span(const Span &span)
+{
+	*this = span;
 }
-int Span::shortestSpan() const {
-	if (_numbers.size() < 2)
-		throw std::logic_error("Not enough numbers to find a span");
-	std::vector<int> sortedNumbers = _numbers;
-	std::sort(sortedNumbers.begin(), sortedNumbers.end());
-	int minSpan = std::numeric_limits<int>::max();
-	for (size_t i = 1; i < sortedNumbers.size(); ++i) {
-		int span = sortedNumbers[i] - sortedNumbers[i - 1];
-		if (span < minSpan)
-			minSpan = span;
+
+Span::~Span()
+{
+}
+
+Span &Span::operator=(const Span &span)
+{
+	_size = span._size;
+	_arr = span._arr;
+	return *this;
+}
+
+void Span::addNumber(int n)
+{
+	if (_arr.size() >= _size)
+		throw Span::maxSizeReached();
+	_arr.push_back(n);
+}
+
+unsigned int Span::shortestSpan()
+{
+	if (_arr.size() == 0)
+		throw Span::notFound();
+	if (_arr.size() == 1)
+		throw Span::onlyOneElement();
+	std::sort(_arr.begin(), _arr.end());
+	unsigned int min = UINT_MAX;
+	for (unsigned int i = 1; i < _arr.size(); i++)
+	{
+		if (static_cast<unsigned int>(_arr[i] - _arr[i - 1]) < min)
+			min = _arr[i] - _arr[i - 1];
 	}
-	return minSpan;
+	return min;
 }
-int Span::longestSpan() const {
-	if (_numbers.size() < 2)
-		throw std::logic_error("Not enough numbers to find a span");
-	int min = *std::min_element(_numbers.begin(), _numbers.end());
-	int max = *std::max_element(_numbers.begin(), _numbers.end());
-	return max - min;
+
+unsigned int Span::longestSpan()
+{
+	if (_arr.size() == 0)
+		throw Span::notFound();
+	if (_arr.size() == 1)
+		throw Span::onlyOneElement();
+	std::sort(_arr.begin(), _arr.end());
+	return _arr[_arr.size() - 1] - _arr[0];
 }
+

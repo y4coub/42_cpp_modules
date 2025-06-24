@@ -1,30 +1,56 @@
-
-#ifndef SPAN_HPP_
-#define SPAN_HPP_
+#ifndef SPAN_HPP
+#define SPAN_HPP
 
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <stdexcept>
-#include <limits>
+#include <exception>
+#include <climits>
 
-// Class declaration
 class Span
 {
-public:
-	Span();
-	Span(unsigned int n);
-	Span(const Span &other);
-	Span &operator=(const Span &rhs);
-	~Span();
-	void addNumber(int number);
-	void addNumbers(const std::vector<int> &numbers);
-	int shortestSpan() const;
-	int longestSpan() const;
-
 private:
-	unsigned int _maxSize;
-	std::vector<int> _numbers;
+	std::vector<int> _arr;
+	unsigned int _size;
+	
+	Span();
+
+public:
+	Span(unsigned int n);
+	Span(const Span &span);
+	~Span();
+	Span &operator=(const Span &span);
+	
+	void addNumber(int n);
+	unsigned int shortestSpan();
+	unsigned int longestSpan();
+	
+	class maxSizeReached: public std::exception
+	{
+	public:
+		const char * what() const throw()
+		{
+			return "Vector is full";
+		}
+	};
+	
+	class notFound: public std::exception
+	{
+	public:
+		const char * what() const throw()
+		{
+			return "Element is not found";
+		}
+	};
+	
+	class onlyOneElement: public std::exception
+	{
+	public:
+		const char * what() const throw()
+		{
+			return "Only one element in the vector";
+		}
+	};
 };
 
-#endif // SPAN_HPP_
+#endif

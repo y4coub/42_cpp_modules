@@ -4,48 +4,47 @@
 #include <deque>
 #include <iostream>
 
-template <typename T>
-void testContainer(T &container, int searchValue, const std::string &containerName)
-{
-	std::cout << "Searching for value " << searchValue << " in " << containerName << ":" << std::endl;
-	try
-	{
-		typename T::iterator it = easyfind(container, searchValue);
-		std::cout << "  ➤ Found: " << *it << std::endl;
-	}
-	catch (const std::exception &e)
-	{
-		std::cerr << "  ✘ Exception: " << e.what() << std::endl;
-	}
-	std::cout << std::endl;
-}
-
 int main()
 {
-	// Vector Test
-	std::vector<int> vec;
-	for (int i = 0; i < 10; ++i)
-		vec.push_back(i * 2); // 0, 2, 4, ..., 18
+    std::vector<int> vect;
+    std::list<int> lst;
+    std::deque<int> dq;
 
-	testContainer(vec, 6, "std::vector");
-	testContainer(vec, 21, "std::vector");
+    for (int i = 0; i < 10; ++i) {
+        vect.push_back(i);
+        lst.push_back(i);
+        dq.push_back(i);
+    }
 
-	// List Test
-	std::list<int> lst;
-	lst.push_back(5);
-	lst.push_back(10);
-	lst.push_back(15);
+    try {
+        std::cout << "Vector find 5: " << *easyfind(vect, 5) << std::endl;
+        std::cout << "List   find 5: " << *easyfind(lst, 5) << std::endl;
+        std::cout << "Deque  find 5: " << *easyfind(dq, 5) << std::endl;
+    }
+    catch (const std::exception &e) {
+        std::cerr << e.what() << std::endl;
+    }
 
-	testContainer(lst, 10, "std::list");
-	testContainer(lst, 3, "std::list");
+    try {
+        std::cout << "Deque find 42: " << *easyfind(dq, 42) << std::endl;
+    }
+    catch (const std::exception &e) {
+        std::cerr << "Deque find 42: " << e.what() << std::endl;
+    }
 
-	// Deque Test
-	std::deque<int> deq;
-	for (int i = 1; i <= 5; ++i)
-		deq.push_back(i * 3); // 3, 6, 9, 12, 15
+	try {
+		std::cout << "Vector find 42: " << *easyfind(vect, 42) << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cerr << "Vector find 42: " << e.what() << std::endl;
+	}
 
-	testContainer(deq, 12, "std::deque");
-	testContainer(deq, 0, "std::deque");
+	try {
+		std::cout << "List find 42: " << *easyfind(lst, 42) << std::endl;
+	}
+	catch (const std::exception &e) {
+		std::cerr << "List find 42: " << e.what() << std::endl;
+	}
 
-	return 0;
+    return 0;
 }
